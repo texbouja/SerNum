@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section 
+    xml:id="sec-somrelcomp" 
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+>
+  <title>Sommation des relations de comparaison</title>
+  <p>
+    Cette section est consacrée aux résultats permettant de sommer des relations de comparaison.
+  </p>
+
+<theorem xml:id="thm-somcomp">
+    <statement>
+        <p> Son considère deux séries à termes réels positifs <m>\sum x_n</m> et <m>\sum a_n</m>.
+        </p>
+        <ol>
+            <li>
+                <p>
+                    On suppose que <m>x_n=O(a_n)</m>.
+                    <ul>
+                        <li>
+                            <p>
+                                Si <m>\sum a_n</m> converge alors <m>\sum x_n</m> converge et on a  
+                                <m>\displaystyle
+                                    \sum_{k=n+1}^{+\infty}x_k=O\left(
+                                        \sum_{k=n+1}^{+\infty}a_k
+                                    \right)
+                                </m>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Si <m>\sum x_n</m> diverge alors <m>\sum a_n</m> diverge et on a  
+                                <m>\displaystyle
+                                    \sum_{k=0}^{n}x_k=O\left(
+                                        \sum_{k=0}^{n}a_k
+                                    \right)
+                                </m>
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </li>
+            <li>
+                <p>
+                    On suppose que <m>x_n=o(a_n)</m>.
+                    <ul>
+                        <li>
+                            <p>
+                                Si <m>\sum a_n</m> converge alors <m>\sum x_n</m> converge et on a  
+                                <m>\displaystyle
+                                    \sum_{k=n+1}^{+\infty}x_k=o\left(
+                                        \sum_{k=n+1}^{+\infty}a_k
+                                    \right)
+                                </m>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Si <m>\sum x_n</m> diverge alors <m>\sum a_n</m> diverge et on a  
+                                <m>\displaystyle
+                                    \sum_{k=0}^{n}x_k=o\left(
+                                        \sum_{k=0}^{n}a_k
+                                    \right)
+                                </m>
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </li>
+            <li>
+                <p>
+                    On suppose que <m>x_n\sim a_n</m>. Alors <m>\sum x_n</m> si et seulement si <m>\sum a_n</m> converge. De plus : 
+                    <ul>
+                        <li>
+                            <p>
+                                Si <m>\sum a_n</m> converge alors
+                                <m>\displaystyle
+                                    \sum_{k=n+1}^{+\infty}x_k\sim
+                                        \sum_{k=n+1}^{+\infty}a_k
+                                </m>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Si <m>\sum a_n</m> diverge alors   
+                                <m>\displaystyle
+                                    \sum_{k=0}^{n}x_k\sim
+                                        \sum_{k=0}^{n}a_k
+                                </m>
+                            </p>
+                        </li>
+                    </ul>
+                </p>
+            </li>
+        </ol>
+    </statement>
+</theorem>
+<proof>
+    <p>
+        Du troisième point : si <m>x_n\sim a_n</m> alors il existe <m>n_0\in\mathbb N</m> tel que 
+        <me>
+            \forall n\geqslant n_0,\; \frac12 a_n\leqslant x_n\leqslant \frac32 a_n 
+        </me>
+        Ce qui prouve que la série <m>\sum x_n</m> est de même nature que <m>\sum a_n</m>.
+
+        Supposons maintenant que <m>\sum a_n</m> converge et considérons un réel <m>\varepsilon\gt 0</m>. Il existe <m>N\in\mathbb N</m> tel que 
+        <men xml:id="eq-encad">
+            \forall k\geqslant N,\; 
+            (1-\varepsilon)a_k\leqslant x_k\leqslant (1+\varepsilon)a_k
+        </men>
+        Soit alors <m>n\geqslant N</m>, en sommant ces inégalités pour <m>k</m> allant de <m>n+1</m> à <m>+\infty</m> on obtient 
+        <me>
+            (1-\varepsilon)\sum_{k=n+1}^{+\infty}a_k\leqslant \sum_{k=n+1}^{+\infty}x_k\leqslant (1+\varepsilon)\sum_{k=n+1}^{+\infty}a_k
+        </me>
+        Ce qui montre que <m>\displaystyle \sum_{k=n+1}^{+\infty}x_k\sim \sum_{k=n+1}^{+\infty} a_k</m>.
+
+        Ensuite, si <m>\sum a_n</m> était divergente, en se donnant encore un réel <m>\varepsilon\gt0</m> et un entier <m>N</m> vérifiant <xref ref="eq-encad"/>, pour tout <m>n\geqslant N</m> on peut écrire 
+        <me>
+            \sum_{k=0}^nx_k=\sum_{k=0}^{N-1}x_k+\sum_{k=N}^nx_k=X_N+\sum_{k=N}^nx_k
+        </me>
+        et ensuite 
+        <me>
+            X_N+(1-\varepsilon)\sum_{k=N}^na_k \leqslant \sum_{k=0}^nx_k\leqslant X_N+(1+\varepsilon)\sum_{k=N}^na_k
+        </me>
+        <me>
+            X_N-(1-\varepsilon)A_N+(1-\varepsilon)\sum_{k=0}^na_k \leqslant \sum_{k=0}^n x_k \leq X_N-(1+\varepsilon)A_N+(1+1\varepsilon)\sum_{k=0}^na_k
+        </me>
+        
+        
+        
+        
+    </p>
+</proof>
+</section>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-serint" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Comparaison séries/intégrales</title>
+
+  <p> On considère une fonction continue par morceaux, <alert> décroissante et positive </alert>
+  <m> f:{}[0,+\infty[{} \longrightarrow \mathbb R</m>. Alors pour tout <m>m\in\mathbb N^*</m>
+  <me>
+    \int_n^{n+1}f(t)\mathrm d t \leqslant 
+    f(n)
+    \leqslant  \int_{n-1}^{n}f(t)\mathrm d t
+  </me>
+  La minoratiion est en fait valable pour tout <m>n\in\mathbb N</m> alors que la majoration est valable pour tout <m>n\in\mathbb N^*</m>.
+  </p>
+
+  <p> 
+    De ce fait on a le théorème suivant :
+  </p>
+
+  <theorem xml:id="thm-serint">
+    <title>de comparaison séries/intégrales</title>
+    
+    <statement>
+      <p>
+         <ol>
+          <li>
+              <m>\forall n\in\mathbb N^*,\; \int_0^{n+1} f(t)\mathrm d t \leqslant
+              \sum_{k=0}^nf(k) \leqslant f(0) +\int_0^{n} f(t)\mathrm d t</m>
+          </li>
+          <li>
+              la série <m>\sum f(n)</m> converge si et seulement si l'intégrale  <m> \displaystyle\int_0^{+\infty} f(t)\mathrm d t</m> converge.
+          </li> 
+          <li>
+            <p> Si l'intégrale 
+            <m>\displaystyle\int_0^{+\infty} f(t)\mathrm d t</m> 
+            converge alors :
+            <ol>
+              <li>
+                  <m>
+                  \int_0^{+\infty} f(t)\mathrm d t \leqslant\sum_{k=0}^{+\infty}f(k) \leqslant f(0) +\int_0^{+\infty} f(t)\mathrm d t
+                  </m> 
+              </li>
+              <li>
+                  <m>
+                  \forall n\in\N^* \int_{n+1}^{+\infty} f(t)\mathrm d t \leqslant\sum_{k=n+1}^{+\infty}f(k) \leqslant \int_{n}^{+\infty} f(t)\mathrm d t
+                  </m>
+              </li>
+              <li>
+                <p>
+                  en particulier si <m>\displaystyle \int_n^{n+1}f(t)\mathrm d t=
+                  o\left(\int_n^{+\infty}f(t)\mathrm d t\right)</m> alors 
+                  <m>\displaystyle \sum_{k=n+1}^{+\infty}f(k)\sim \int_{n}^{+\infty}f(t)\mathrm dt </m>
+                </p>
+              </li>
+            </ol>
+            </p>
+          </li>
+         <li>
+          <p>
+            Si l'intégrale <m> \displaystyle \int_0^{+\infty}f(t)\mathrm dt </m> diverge et si 
+            <m>\displaystyle \int_n^{n+1}f(t)\mathrm d t=
+                  o\left(\int_0^{n}f(t)\mathrm d t\right)</m> alors 
+            <me>
+              \sum_{k=0}^nf(k)\sim\int_0^n f(t)\mathrm dt 
+            </me>
+          </p>
+         </li>
+        </ol>
+        </p>
+      </statement>
+    </theorem>
+<remark>
+<p>
+  On peut remplacer l'intervalle <m>[0,+\infty[</m> par un intervalle de la forme <m>[p,+\infty[</m> où <m>p</m> est un entier <m>\geqslant0</m> lorsque la fonction <m>f</m> n'est pas définie sur <m>[0,+\infty[</m>. 
+  </p>
+</remark>
+<example> 
+  <title>Séries de Riemann</title>
+  <statement>
+    <p> 
+      Soit un réel <m>\alpha\geqslant 0</m>.
+      La série <m>\sum \frac1{n^\alpha}</m> converge si et seulement si <m>\alpha>1</m>. Par ailleurs 
+      <ul>
+        <li>
+           <m>\text{si } \alpha \gt 1 \text{ alors } 
+             \sum_{k=n+1}^{+\infty}\frac1{k^\alpha}\sim\frac1{(\alpha-1)n^{\alpha-1}} </m>
+        </li>
+        <li>
+           <m>\text{si } \alpha \lt 1 \text{ alors } 
+            \sum_{k=1}^{n}\frac1{k^\alpha}\sim\frac1{(1-\alpha)n^{\alpha-1}} </m>
+        </li>
+        <li>
+          <m>\text{si } \alpha = 1 \text{ alors } 
+            \sum_{k=1}^n\frac1{k}\sim\ln n </m>
+        </li>
+      </ul>
+    </p>
+  </statement>
+  
+  <hint>
+    <p>
+      Considérer la fonction <m>f:t\in [1,+\infty[ \longrightarrow \frac1{t^\alpha}</m>
+    </p>
+  </hint>
+  
+</example>
+<example>
+  <title>Séries de Bertrand</title>
+  <statement>
+    <p>
+       On considère deux réels <m>\alpha</m> et <m>\beta</m>. Alors 
+  <me>\text{la série} \sum \frac1{n^\alpha(\ln n)^\beta} \Longleftrightarrow
+  (\alpha \gt 1) \text{ ou } (\alpha=1 \text{ et } \beta\gt 1)
+  </me>
+    </p>
+  </statement>
+  <hint>
+    <p>
+      Si <m>\alpha\ne1</m> comparer à des séries de Riemann, dans le cas contraire considérer la fonction <m>f:t\longrightarrow \frac1{t (\ln t)^\beta}</m> sur l'intervalle <m>[2,+\infty[</m>.
+    </p>
+  </hint>
+  <solution>
+    <p>
+      <ul>
+        <li>
+                Si <m>\alpha \lt 0 </m> alors la série <m>\sum f(n)</m> diverge grossièrement.
+        </li>
+        <li>
+                Si <m>0\leqslant \alpha \lt 1</m> alors <m>\frac1{n^\ell}=o(f(n))</m> pour tout <m>\ell \in ]\alpha,1[</m>.
+        </li>
+        <li>
+                Si <m>\alpha \gt 1</m> alors <m>f(n)=o\left(\frac1{n^\ell}\right) </m> pour tout <m>\ell \in ]1,\alpha[</m>. 
+        </li>
+        <li>
+                Si <m>\alpha=1</m> on vérifie que <m>f</m> est décroissante sur un intervalle voisinage de <m>+\infty</m> et donc que <m>\sum f(n)</m> converge si et seulement si l'intégrale <m>\int_2^{+\infty} \frac{\mathrm d t}{t (\ln t)^\beta}</m> converge. On conclut en constatant que :
+                <md>
+                  <mrow> \int_2^{n}f(t)\mathrm d t\amp =\frac1{1-\beta}\left(\frac1{(\ln n)^{\beta-1}}-\frac1{(\ln 2)^{\beta-1}}\right) \amp\amp \text{si } \beta\ne 1</mrow> 
+                  <mrow> \int_2^{n}f(t)\mathrm d t\amp =\ln\bigl(\ln n\bigr)-\ln\bigl(\ln 2\bigr) \amp\amp \text{si } \beta= 1 </mrow>
+                </md>
+
+        </li>
+      </ul>
+
+    </p>
+  </solution>
+
+  <exercise workspace="test">
+    On pose pour tout <m>n\in\mathbb N^* </m> 
+    <me>
+      \gamma_n=\sum_{k=1}^n\frac1k -\ln n 
+    </me>
+    
+  </exercise>
+ 
+  
+  
+</example>
+
+</section>
